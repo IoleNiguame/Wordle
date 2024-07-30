@@ -10,29 +10,31 @@ root = Tk()
 root.title("Wordle")
 root.configure(bg="#29d9c9")
 
-def Entre(self):
-    entree = Entry(root, width=5, font=("Arial", 50), justify=CENTER, bg="#d5dfde", bd=0)
-    entree.pack(side=TOP)
 
-Entre()
+entree = Entry(root, width=5, font=("Arial", 50), justify=CENTER, bg="#d5dfde", bd=0)
+entree.grid(column=0, row=0)
 
 def verifier():
-    tentative = list(entry.entree.get())
+    tentative = list(entree.get())
+    lettres = 1
     for i in tentative:
         if i in mot:
             if tentative.index(i) == mot.index(i):
                 label = Label(root, text=i, fg='green', font=('Arial', 50), bg="#29d9c9")
-                label.pack(side=LEFT)
+                label.grid(column=lettres, row=0)#pack(side=BOTTOM)
+                print(lettres)
             else:
                 print('bien... %s' % i)
                 label = Label(root, text=i, fg='#d96d22', font=('Arial', 50), bg="#29d9c9")
-                label.pack(side=LEFT)
+                label.grid(column=lettres, row=0)
         else:
             print('dommage  %s' % i)
             label = Label(root, text=i, fg='#e62929', font=('Arial', 50), bg="#29d9c9")
-            label.pack(side=LEFT)
+            label.grid(column=lettres, row=0)
+        lettres += 1
+        
 
 btn = Button(root, text="Verifier", font=('Arial', 20), bg="#93e32d", command=verifier)
-btn.pack(side=BOTTOM)
+btn.grid(row=2, column=0)#pack(side=BOTTOM)
 
 root.mainloop()
