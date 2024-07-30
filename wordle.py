@@ -17,19 +17,21 @@ entree.grid(column=0, row=0)
 def verifier():
     tentative = list(entree.get())
     lettres = 1
+    frameR = Frame(root, relief=GROOVE)
+    frameR.grid(row=0, column=1)
     for i in tentative:
         if i in mot:
             if tentative.index(i) == mot.index(i):
-                label = Label(root, text=i, fg='green', font=('Arial', 50), bg="#29d9c9")
+                label = Label(frameR, text=i, fg='green', font=('Arial', 50), bg="#29d9c9")
                 label.grid(column=lettres, row=0)#pack(side=BOTTOM)
                 print(lettres)
             else:
                 print('bien... %s' % i)
-                label = Label(root, text=i, fg='#d96d22', font=('Arial', 50), bg="#29d9c9")
+                label = Label(frameR, text=i, fg='#d96d22', font=('Arial', 50), bg="#29d9c9")
                 label.grid(column=lettres, row=0)
         else:
             print('dommage  %s' % i)
-            label = Label(root, text=i, fg='#e62929', font=('Arial', 50), bg="#29d9c9")
+            label = Label(frameR, text=i, fg='#e62929', font=('Arial', 50), bg="#29d9c9")
             label.grid(column=lettres, row=0)
         lettres += 1
         
