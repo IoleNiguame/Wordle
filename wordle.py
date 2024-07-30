@@ -7,7 +7,7 @@ mot = list(random.choice(liste_de_mots))
 print(mot)
 root = Tk()
 
-entree = Entry(root, width=50, font=("Arial", 20))
+entree = Entry(root, width=50, font=("Arial", 20), justify=CENTER)
 entree.pack()
 
 def verifier():
@@ -15,12 +15,16 @@ def verifier():
     for i in tentative:
         if i in mot:
             if tentative.index(i) == mot.index(i):
-                print('très bien !! %s' % i)
+                label = Label(root, text=i, fg='green')
+                label.pack(side=LEFT)
             else:
                 print('bien... %s' % i)
-                
+                label = Label(root, text=i, fg='orange')
+                label.pack(side=LEFT)
         else:
             print('dommage  %s' % i)
+            label = Label(root, text=i, fg='red')
+            label.pack(side=LEFT)
 
 btn = Button(root, text="Bien", command=verifier)
 btn.pack()
