@@ -102,6 +102,8 @@ root.title("Wordle")
 root.configure(bg="#29d9c9")
 root.resizable(0, 0)
 
+men5l = Label(root, text="Mot en cinq lettres", font=('Arial', 20), bg="#29d9c9")
+men5l.pack()
 
 
 
@@ -131,7 +133,7 @@ class Essai:
             
             f_donnee = open('donnee_wordle.dat', 'rb')
             nb = pickle.load(f_donnee)
-            nb["victoires"] = 0
+            nb["victoires"] += 1
             f_donnee.close()
                 
             f_donneeW = open('donnee_wordle.dat', 'wb')
@@ -169,7 +171,7 @@ class Essai:
                 
                 f_donnee = open('donnee_wordle.dat', 'rb')
                 nb = pickle.load(f_donnee)
-                nb["defaites"] = 0
+                nb["defaites"] += 1
                 f_donnee.close()
                 
                 f_donneeW = open('donnee_wordle.dat', 'wb')
