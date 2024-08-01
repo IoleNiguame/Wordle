@@ -95,7 +95,6 @@ quand
 abord"""
 liste_de_mots = mots.split()
 mot = list(random.choice(liste_de_mots).lower())
-print(mot)
 
 root = Tk()
 root.title("Wordle")
