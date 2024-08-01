@@ -58,7 +58,7 @@ class Essai:
                 
                 f_donnee = open('donnee_wordle.dat', 'rb')
                 nb = pickle.load(f_donnee)
-                nb["victoires"] += 0
+                nb["victoires"] += 1
                 f_donnee.close()
                     
                 f_donneeW = open('donnee_wordle.dat', 'wb')
